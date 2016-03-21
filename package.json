@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "cli tool for monitoring dats",
   "main": "index.js",
+  "bin": {
+    "datmon": "index.js"
+  },
   "scripts": {
     "test": "node test.js"
   },
@@ -22,5 +25,11 @@
   "bugs": {
     "url": "https://github.com/karissa/datmon/issues"
   },
-  "homepage": "https://github.com/karissa/datmon#readme"
+  "homepage": "https://github.com/karissa/datmon#readme",
+  "dependencies": {
+    "auto-daemon": "^2.6.0",
+    "cli-prompt": "^0.5.0",
+    "dat-manager": "^1.4.4",
+    "relative-date": "^1.1.2"
+  }
 }

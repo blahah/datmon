@@ -1,0 +1,3 @@
+datmon ls
+datmon link <folder> [--name=<name>]
+datmon stop <id>
