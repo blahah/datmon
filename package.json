@@ -1,0 +1,26 @@
+{
+  "name": "datmon",
+  "version": "1.0.0",
+  "description": "cli tool for monitoring dats",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karissa/datmon.git"
+  },
+  "keywords": [
+    "dat",
+    "monitor",
+    "mon",
+    "process",
+    "daemon"
+  ],
+  "author": "Karissa McKelvey <karissa@karissamck.com> (http://karissamck.com/)",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/karissa/datmon/issues"
+  },
+  "homepage": "https://github.com/karissa/datmon#readme"
+}
