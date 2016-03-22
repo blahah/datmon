@@ -38,27 +38,33 @@ autod(opts, function (err, r, c) {
       c.destroy()
     })
   } else if (cmd === 'close') {
-    id = args._[1]
-    if (!id) {
-      r.list(function (err, dats) {
-        if (err) return onerror(err)
-        if (dats.length === 0) {
-          console.log('No dats running.')
-          r.close()
-          c.destroy()
-          process.exit(0)
-        }
-        prompt('This will stop sharing ' + dats.length + (dats.length > 1 ? ' dats' : ' dat') + '. Are you sure? [y/n] ', function (res) {
-          if (res === 'y' || res === 'yes') r.close()
-          else c.destroy()
-        })
-      })
-    } else {
-      r.stop(id, function (err, data) {
-        if (err) return onerror(err)
+    r.list(function (err, dats) {
+      if (err) return onerror(err)
+      if (dats.length === 0) {
+        console.log('No dats running.')
+        r.close()
         c.destroy()
+        process.exit(0)
+      }
+      prompt('This will stop sharing ' + dats.length + (dats.length > 1 ? ' dats' : ' dat') + '. Are you sure? [y/n] ', function (res) {
+        if (res === 'y' || res === 'yes') r.close()
+        else c.destroy()
       })
-    }
+    })
+  } else if (cmd === 'stop') {
+    id = args._[1]
+    if (!id) return usage()
+    r.stop(id, function (err, data) {
+      if (err) return onerror(err)
+      c.destroy()
+    })
+  } else if (cmd === 'start') {
+    id = args._[1]
+    if (!id) return usage()
+    r.start(id, function (err, data) {
+      if (err) return onerror(err)
+      c.destroy()
+    })
   } else {
     usage()
   }
@@ -70,15 +76,16 @@ function onerror (err) {
 }
 
 function usage () {
-  fs.createReadStream(path.join(__dirname, 'usage.txt')).pipe(process.stdout)
-  process.exit(1)
+  var stream = fs.createReadStream(path.join(__dirname, 'usage.txt'))
+  stream.once('close', function () { process.exit(1) })
+  stream.pipe(process.stdout)
 }
 
 function prettifyDat (dat) {
   var msg = ''
-  msg += dat.key + '\t'
-  msg += dat.value.swarm + '\t'
-  msg += relativeDate(dat.value.date) + '\t'
+  msg += dat.key + '   '
+  msg += dat.value.swarm ? 'on' : 'off' + '   '
+  msg += relativeDate(dat.value.date) + '   '
   msg += 'dat://' + dat.value.link
   return msg
 }
