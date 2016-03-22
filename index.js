@@ -12,7 +12,7 @@ var autod = require('auto-daemon')
 var opts = {
   rpcfile: path.join(__dirname, 'server.js'),
   sockfile: path.join(__dirname, 'datmon.sock'),
-  methods: [ 'start', 'stop', 'list', 'link', 'close' ]
+  methods: [ 'remove', 'start', 'stop', 'list', 'link', 'close' ]
 }
 
 var cmd = args._[0]
@@ -55,6 +55,13 @@ autod(opts, function (err, r, c) {
     id = args._[1]
     if (!id) return usage()
     r.stop(id, function (err, data) {
+      if (err) return onerror(err)
+      c.destroy()
+    })
+  } else if (cmd === 'rm' || cmd === 'remove') {
+    id = args._[1]
+    if (!id) return usage()
+    r.remove(id, function (err, data) {
       if (err) return onerror(err)
       c.destroy()
     })

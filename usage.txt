@@ -17,6 +17,10 @@ datmon start NAME
 
   Start a dat with the given NAME.
 
+datmon rm NAME
+
+  Stop a dat and remove it from the list. Does not remove the file contents.
+
 datmon close
 
   Stop all dats and close the daemon.

@@ -14,20 +14,22 @@ Now you can start a dat called 'census'
 
 ```
 $ datmon link ~/data/census_data -n census
+census running   just now   dat://b8f6a4178617e8618
 ```
 
 And another dat called 'finances'
 
 ```
 $ datmon link ~/data/finances -n finances
+finances running   just now   dat://as723hsdf18s73723
 ```
 
 You can then list the running dats:
 
 ```
 $ datmon ls
-finances   running    less than a minute ago    dat://bafd737f610d03
-census     running    less than a minute ago    dat://bafd737f610d03
+finances   running    less than a minute ago    dat://b8f6a4178617e8
+census     running    less than a minute ago    dat://as723hsdf18s73
 ```
 
 To stop a dat:
@@ -36,6 +38,13 @@ To stop a dat:
 $ datmon stop finances
 $ datmon ls
 finances   not running    ----                  dat://bafd737f610d03
+census     running    less than a minute ago    dat://bafd737f610d03
+```
+
+And to remove it from the list:
+
+```
+$ datmon rm finances
 census     running    less than a minute ago    dat://bafd737f610d03
 ```
 
@@ -61,6 +70,10 @@ datmon stop NAME
 datmon start NAME
 
   Start a dat with the given NAME.
+
+datmon rm NAME
+
+  Stop a dat and remove it from the list. Does not remove the file contents.
 
 datmon close
 

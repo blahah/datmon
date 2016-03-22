@@ -2,6 +2,7 @@ var Manager = require('dat-manager')
 var manager = Manager()
 module.exports = function (server, stream) {
   return {
+    remove: function (id, cb) { manager.delete(id, cb) },
     start: function (id, cb) { manager.start(id, cb) },
     list: function (cb) { manager.list(cb) },
     link: function (id, link, cb) { manager.share(id, link, cb) },
