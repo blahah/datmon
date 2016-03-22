@@ -84,7 +84,7 @@ function usage () {
 function prettifyDat (dat) {
   var msg = ''
   msg += dat.key + '   '
-  msg += dat.value.swarm ? 'running' : 'not running' + '   '
+  msg += (dat.value.swarm ? 'running' : 'not running') + '   '
   msg += relativeDate(dat.value.date) + '   '
   msg += 'dat://' + dat.value.link
   return msg
