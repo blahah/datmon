@@ -13,7 +13,7 @@ npm install -g datmon
 Now you can start a dat called 'census'
 
 ```
-$ datmon link ~/data/census_data -n census
+$ datmon link ~/Dropbox/census/2010 -n census
 census running   just now   dat://b8f6a4178617e8618
 ```
 
@@ -28,8 +28,11 @@ You can then list the running dats:
 
 ```
 $ datmon ls
-finances   running    less than a minute ago    dat://b8f6a4178617e8
-census     running    less than a minute ago    dat://as723hsdf18s73
+finances   running    less than a minute ago     /Users/karissa/data/finances
+  dat://b8f6a4178617e8
+
+census     running    less than a minute ago    /Users/karissa/Dropbox/census/2010
+  dat://as723hsdf18s73
 ```
 
 To stop a dat:
@@ -37,15 +40,19 @@ To stop a dat:
 ```
 $ datmon stop finances
 $ datmon ls
-finances   not running    ----                  dat://bafd737f610d03
-census     running    less than a minute ago    dat://bafd737f610d03
+finances   not running    ----    /Users/karissa/data/finances
+  dat://bafd737f610d03
+
+census     running    less than a minute ago    /Users/karissa/Dropbox/census/2010
+  dat://bafd737f610d03
 ```
 
 And to remove it from the list:
 
 ```
 $ datmon rm finances
-census     running    less than a minute ago    dat://bafd737f610d03
+census     running    less than a minute ago     /Users/karissa/data/finances
+  dat://bafd737f610d03
 ```
 
 ## usage

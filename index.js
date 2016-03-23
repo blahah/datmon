@@ -93,6 +93,7 @@ function prettifyDat (dat) {
   msg += dat.key + '   '
   msg += (dat.value.swarm ? 'running' : 'not running') + '   '
   msg += (dat.value.swarm ? relativeDate(dat.value.date) : '----') + '   '
-  msg += 'dat://' + dat.value.link
+  msg += dat.value.location + '  \n'
+  msg += '    dat://' + dat.value.link + '\n'
   return msg
 }
