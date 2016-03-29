@@ -9,14 +9,6 @@ datmon ls
 
   List the currently tracked dats.
 
-datmon stop NAME
-
-  Stop a dat with the given NAME.
-
-datmon start NAME
-
-  Start a dat with the given NAME.
-
 datmon rm NAME
 
   Stop a dat and remove it from the list. Does not remove the file contents.

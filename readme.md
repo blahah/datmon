@@ -35,19 +35,7 @@ census     running    less than a minute ago    /Users/karissa/Dropbox/census/20
   dat://as723hsdf18s73
 ```
 
-To stop a dat:
-
-```
-$ datmon stop finances
-$ datmon ls
-finances   not running    ----    /Users/karissa/data/finances
-  dat://bafd737f610d03
-
-census     running    less than a minute ago    /Users/karissa/Dropbox/census/2010
-  dat://bafd737f610d03
-```
-
-And to remove it from the list:
+To stop a dat and remove it from the list:
 
 ```
 $ datmon rm finances
@@ -55,7 +43,7 @@ census     running    less than a minute ago     /Users/karissa/data/finances
   dat://bafd737f610d03
 ```
 
-## usage
+## Usage
 
 
 ```
@@ -69,14 +57,6 @@ datmon link DIR [-n NAME]
 datmon ls
 
   List the currently tracked dats.
-
-datmon stop NAME
-
-  Stop a dat with the given NAME.
-
-datmon start NAME
-
-  Start a dat with the given NAME.
 
 datmon rm NAME
 

@@ -2,7 +2,6 @@
 var args = require('minimist')(process.argv.splice(2), {
   alias: {n: 'name'}
 })
-var relativeDate = require('relative-date')
 var fs = require('fs')
 var path = require('path')
 var prompt = require('cli-prompt')
@@ -51,24 +50,10 @@ autod(opts, function (err, r, c) {
         else c.destroy()
       })
     })
-  } else if (cmd === 'stop') {
-    id = args._[1]
-    if (!id) return usage()
-    r.stop(id, function (err, data) {
-      if (err) return onerror(err)
-      c.destroy()
-    })
   } else if (cmd === 'rm' || cmd === 'remove') {
     id = args._[1]
     if (!id) return usage()
     r.remove(id, function (err, data) {
-      if (err) return onerror(err)
-      c.destroy()
-    })
-  } else if (cmd === 'start') {
-    id = args._[1]
-    if (!id) return usage()
-    r.start(id, function (err, data) {
       if (err) return onerror(err)
       c.destroy()
     })
@@ -90,10 +75,7 @@ function usage () {
 
 function prettifyDat (dat) {
   var msg = ''
-  msg += dat.key + '   '
-  msg += (dat.value.swarm ? 'running' : 'not running') + '   '
-  msg += (dat.value.swarm ? relativeDate(dat.value.date) : '----') + '   '
+  msg += 'dat:// ' + dat.value.link + '   '
   msg += dat.value.location + '  \n'
-  msg += '    dat://' + dat.value.link + '\n'
   return msg
 }
