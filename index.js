@@ -30,8 +30,7 @@ autod(opts, function (err, r, c) {
     })
   } else if (cmd === 'link') {
     var location = args._[1]
-    id = args.name || args.n || randomBytes(4).toString('hex')
-    r.link(id, location, function (err, data) {
+    r.link(location, function (err, data) {
       if (err) return onerror(err)
       console.log(prettifyDat(data))
       c.destroy()
