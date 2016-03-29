@@ -1,6 +1,6 @@
 {
   "name": "datmon",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Cli tool for monitoring local dat servers.",
   "main": "index.js",
   "bin": {
