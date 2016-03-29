@@ -5,7 +5,7 @@ module.exports = function (server, stream) {
     remove: function (id, cb) { manager.delete(id, cb) },
     start: function (id, cb) { manager.start(id, cb) },
     list: function (cb) { manager.list(cb) },
-    link: function (id, link, cb) { manager.share(id, link, cb) },
+    link: function (location, cb) { manager.share(location, cb) },
     stop: function (id, cb) { manager.stop(id, cb) },
     close: function (cb) {
       manager.close(function () {

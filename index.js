@@ -75,7 +75,7 @@ function usage () {
 
 function prettifyDat (dat) {
   var msg = ''
-  msg += 'dat:// ' + dat.value.link + '   '
+  msg += 'dat://' + dat.value.link + '   '
   msg += dat.value.location + '  \n'
   return msg
 }
